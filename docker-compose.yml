@@ -1,0 +1,27 @@
+services:
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: sequel
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: saileshp56
+      MYSQL_PASSWORD: my_password
+    volumes:
+      - db-data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: saileshp56
+      WORDPRESS_DB_PASSWORD: my_password
+      WORDPRESS_DB_NAME: sequel
+    volumes:
+      - wordpress-data:/var/www/html
+
+volumes:
+  wordpress-data:
+  db-data:
