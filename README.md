@@ -14,3 +14,12 @@ To close it and keep your persistent volumes run this command in your terminal:
 ```
 kubectl delete service/mysql-service service/wordpress-service deployment.apps/db deployment.apps/frontend
 ```
+
+If you want to horizontally scale the wordpress deployments, you can use two-wordpress-replica-app.yml with this command:
+```
+kubectl apply -f single-replica-app.yml
+```
+To close it and keep your persistent volumes run this command in your terminal:
+```
+kubectl delete service/mysql-service service/wordpress-service deployment.apps/db deployment.apps/frontend
+```
